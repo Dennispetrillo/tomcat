@@ -6,6 +6,18 @@ describe group('tomcatgroup') do
   it { should exist }
 end
 
+describe user('tomcat') do
+  it { should exist }
+end
+
+describe user('tomcat') do
+  its('group') { should eq 'tomcatgroup' }
+end
+
+describe user('tomcat') do
+  its('shell') { should eq '/bin/nologin' } 
+end
+
 #describe file('/etc/yum.repos.d/mongodb-org-3.4.repo') do
 # its ( 'size') { should_not be 0 }
 #end

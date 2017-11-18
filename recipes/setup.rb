@@ -9,3 +9,10 @@ package 'java-1.7.0-openjdk-devel'
 group 'tomcatgroup' do
   append true
 end
+
+user 'tomcat' do
+  group 'tomcatgroup'
+  home '/opt/tomcat'
+  shell '/bin/nologin'
+  manage_home false
+end
