@@ -1,5 +1,9 @@
-describe file('java-1.7.0-openjdk-devel') do
- it { should exist }
+describe package('java-1.7.0-openjdk-devel') do
+ it { should be_installed }
+end
+
+describe group('tomcatgroup') do
+  it { should exist }
 end
 
 #describe file('/etc/yum.repos.d/mongodb-org-3.4.repo') do
