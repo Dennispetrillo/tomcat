@@ -34,4 +34,22 @@ end
 #  its('mode') { should cmp '00740' }
 #end
   
+#describe file('opt/tomcat/conf') do
+#  its('mode') { should cmp '0750' }
+#end
 
+describe file('opt/tomcat/webapps') do
+  its('owner') { should eq 'tomcat' }
+end
+
+describe file('opt/tomcat/work') do
+  its('owner') { should eq 'tomcat' }
+end
+
+describe file('opt/tomcat/temp') do
+  its('owner') { should eq 'tomcat' }
+end
+
+describe file('opt/tomcat/logs') do
+  its('owner') { should eq 'tomcat' }
+end

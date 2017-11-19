@@ -44,3 +44,11 @@ end
 execute 'update mode recursively on conf' do
   command 'chmod -R g+r /opt/tomcat/conf'
 end
+
+directory 'opt/tomcat/conf' do
+  mode '0750'
+end
+
+execute 'chown for some sub directories within tomcat' do
+  command 'chown -R tomcat /opt/tomcat/webapps/ /opt/tomcat/work/ /opt/tomcat/temp/ /opt/tomcat/logs/'
+end
