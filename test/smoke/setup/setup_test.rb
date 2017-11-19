@@ -26,30 +26,29 @@ describe file('/apache-tomcat-8.5.23.tar.gz') do
   it { should exist }
 end
 
-#describe directory('opt/tomcat') do
-#  its('group') {should eq 'tomcat' }
-#end
+describe file('/opt/tomcat') do
+  its('group') {should eq 'tomcat' }
+end
+describe file('/opt/tomcat/conf') do
+  its('mode') { should cmp '0750' }
+end
 
-#describe file('opt/tomcat/conf') do
-#  its('mode') { should cmp '00740' }
-#end
-  
-#describe file('opt/tomcat/conf') do
-#  its('mode') { should cmp '0750' }
-#end
-
-describe file('opt/tomcat/webapps') do
+describe file('/opt/tomcat/webapps') do
   its('owner') { should eq 'tomcat' }
 end
 
-describe file('opt/tomcat/work') do
+describe file('/opt/tomcat/work') do
   its('owner') { should eq 'tomcat' }
 end
 
-describe file('opt/tomcat/temp') do
+describe file('/opt/tomcat/temp') do
   its('owner') { should eq 'tomcat' }
 end
 
-describe file('opt/tomcat/logs') do
+describe file('/opt/tomcat/logs') do
   its('owner') { should eq 'tomcat' }
+end
+
+describe file('/etc/systemd/system/tomcat.service') do
+  it { should exist }
 end

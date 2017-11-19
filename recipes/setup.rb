@@ -52,3 +52,15 @@ end
 execute 'chown for some sub directories within tomcat' do
   command 'chown -R tomcat /opt/tomcat/webapps/ /opt/tomcat/work/ /opt/tomcat/temp/ /opt/tomcat/logs/'
 end
+
+template '/etc/systemd/system/tomcat.service' do
+  source 'systemd.erb'
+end
+	
+execute 'daemon reload' do
+  command 'systemctl daemon-reload'
+end
+
+service 'tomcat' do
+  action [:start, :enable]
+end
