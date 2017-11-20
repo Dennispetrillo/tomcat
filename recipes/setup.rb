@@ -23,19 +23,12 @@ end
 
 remote_file 'apache-tomcat-8.5.23.tar.gz' do
   source 'http://supergsego.com/apache/tomcat/tomcat-8/v8.5.23/bin/apache-tomcat-8.5.23.tar.gz'
-#  owner 'web_admin'
-#  group 'web_admin'
-#  mode '0755'
   action :create
 end
 
 execute 'unzip tar' do
   command 'tar xvf apache-tomcat-8*tar.gz -C /opt/tomcat --strip-components=1'
 end
-
-#directory 'opt/tomcat' do
-#  group 'tomcat'
-#end
 
 execute 'change group recursively' do
   command 'chgrp -R tomcat /opt/tomcat'
